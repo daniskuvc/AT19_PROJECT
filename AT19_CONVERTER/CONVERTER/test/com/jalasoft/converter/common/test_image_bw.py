@@ -11,8 +11,8 @@
 #
 
 import unittest
-from src.com.jalasoft.converter.model.image.image_bw import ImageBW
-from src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
+from CONVERTER.src.com.jalasoft.converter.model.image.image_bw import ImageBW
+from CONVERTER.src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
 
 
 class TestImageBw(unittest.TestCase):

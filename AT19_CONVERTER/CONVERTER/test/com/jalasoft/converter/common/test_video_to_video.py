@@ -11,8 +11,8 @@
 #
 
 import unittest
-from src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
-from src.com.jalasoft.converter.model.video.video_to_video import VideoToVideo
+from CONVERTER.src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
+from CONVERTER.src.com.jalasoft.converter.model.video.video_to_video import VideoToVideo
 
 class TestVideoConvert(unittest.TestCase):
     """Defines unit tests for image_flip.py module"""

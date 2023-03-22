@@ -12,7 +12,7 @@
 #
 
 
-from src.com.jalasoft.converter.database.database_connection import DatabaseConnection as db
+from CONVERTER.src.com.jalasoft.converter.database.database_connection import DatabaseConnection as db
 # from database_connection import DatabaseConnection as db
 
 

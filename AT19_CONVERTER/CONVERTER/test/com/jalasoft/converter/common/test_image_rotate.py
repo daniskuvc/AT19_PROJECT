@@ -11,8 +11,8 @@
 #
 
 import unittest
-from src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
-from src.com.jalasoft.converter.model.image.image_rotate import ImageRotate
+from CONVERTER.src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
+from CONVERTER.src.com.jalasoft.converter.model.image.image_rotate import ImageRotate
 
 
 class TestImageRotate(unittest.TestCase):

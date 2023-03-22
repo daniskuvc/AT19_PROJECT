@@ -14,10 +14,10 @@
 from flask import request
 from werkzeug.utils import secure_filename
 import os
-from src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
+from CONVERTER.src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
 from config import UPLOAD_FOLDER
 from config import RESPONSE_FOLDER
-from src.com.jalasoft.converter.common.valid_data import Validations
+from CONVERTER.src.com.jalasoft.converter.common.valid_data import Validations
 from database.checksum import compare_checksum, checksum_generator_md5
 
 

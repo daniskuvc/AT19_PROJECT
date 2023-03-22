@@ -10,7 +10,7 @@
 # with Jalasoft.
 #
 
-from src.com.jalasoft.converter.common.command_line import Command
+from CONVERTER.src.com.jalasoft.converter.common.command_line import Command
 
 
 class MimeTypeGetter:

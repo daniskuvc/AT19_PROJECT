@@ -11,8 +11,8 @@
 #
 
 import unittest
-from src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
-from src.com.jalasoft.converter.model.audio.audio_increase_volume import IncreaseVolume
+from CONVERTER.src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
+from CONVERTER.src.com.jalasoft.converter.model.audio.audio_increase_volume import IncreaseVolume
 
 
 class TestAudioIncrease(unittest.TestCase):

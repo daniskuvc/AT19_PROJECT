@@ -11,8 +11,8 @@
 #
 
 import unittest
-from src.com.jalasoft.converter.model.image.image_to_text import ImageToTextConvert
-from src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
+from CONVERTER.src.com.jalasoft.converter.model.image.image_to_text import ImageToTextConvert
+from CONVERTER.src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
 
 
 class TestImageToPdf(unittest.TestCase):

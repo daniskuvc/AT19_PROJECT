@@ -11,8 +11,8 @@
 #
 
 import unittest
-from src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
-from src.com.jalasoft.converter.model.audio.audio_extract_audio import ExtractAudio
+from CONVERTER.src.com.jalasoft.converter.common.exception.input_exception import InvalidInputException
+from CONVERTER.src.com.jalasoft.converter.model.audio.audio_extract_audio import ExtractAudio
 
 
 class TestAudioExtract(unittest.TestCase):

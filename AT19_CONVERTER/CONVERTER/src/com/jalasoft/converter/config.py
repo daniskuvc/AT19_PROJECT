@@ -18,8 +18,6 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from dotenv import find_dotenv
 from dotenv import set_key
 from dotenv import dotenv_values
-# from dotenv import load_dotenv
-# load_dotenv()
 
 # Get and set environment info
 envfile_path = find_dotenv()
@@ -36,7 +34,7 @@ os.makedirs(str(RESPONSE_FOLDER), exist_ok=True)
 CONVERTER_HOST_ALL = envparams['CONVERTER_HOST_ALL']
 CONVERTER_PORT = envparams['CONVERTER_PORT']
 APP_SERVER = envparams['APP_SERVER']
-DOWNLOAD_DIR = APP_SERVER + '/download?file_name='
+DOWNLOAD_DIR = str(APP_SERVER) + '/download?file_name='
 
 MYSQLDB_HOST = envparams['MYSQLDB_HOST']
 MYSQLDB_PORT = envparams['MYSQLDB_PORT']

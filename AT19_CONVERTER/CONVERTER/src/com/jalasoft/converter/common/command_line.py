@@ -13,7 +13,7 @@
 
 import subprocess
 import platform
-from src.com.jalasoft.converter.common.exception.command_exception import CommandException
+from CONVERTER.src.com.jalasoft.converter.common.exception.command_exception import CommandException
 
 
 class Command:

@@ -11,9 +11,9 @@
 # with Jalasoft.
 #
 
-from src.com.jalasoft.converter.common.token import Token
+from CONVERTER.src.com.jalasoft.converter.common.token import Token
 from flask import jsonify
-from src.com.jalasoft.converter.database.login_crud import UserCRUD
+from CONVERTER.src.com.jalasoft.converter.database.login_crud import UserCRUD
 
 
 class ValidateUser:

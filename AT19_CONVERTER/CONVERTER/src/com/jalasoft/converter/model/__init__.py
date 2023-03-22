@@ -10,18 +10,18 @@
 # with Jalasoft.
 #
 #
-# from src.com.jalasoft.converter.model.audio.audio_converter import AudioConvert
-# from src.com.jalasoft.converter.model.audio.audio_extract_audio import ExtractAudio
-# from src.com.jalasoft.converter.model.audio.audio_increase_volume import IncreaseVolume
-# from src.com.jalasoft.converter.model.audio.audio_mix_audio import MixAudio
-# from src.com.jalasoft.converter.model.image.image_to_images import ImageConverter
-# from src.com.jalasoft.converter.model.image.image_bw import ImageBW
-# from src.com.jalasoft.converter.model.image.image_flip import ImageFlip
-# from src.com.jalasoft.converter.model.image.image_resize import ImageResize
-# from src.com.jalasoft.converter.model.image.image_rotate import ImageRotate
-# from src.com.jalasoft.converter.model.image.image_to_pdf import ImageToPDFConvert
-# from src.com.jalasoft.converter.model.image.image_to_text import ImageToTextConvert
-# from src.com.jalasoft.converter.model.image.pdf_to_image import PdfImage
-# from src.com.jalasoft.converter.model.video.vconverter import VideoToImages
-# from src.com.jalasoft.converter.model.video.video_to_video import VideoToVideo
-# from src.com.jalasoft.converter.model.text.text_translate import TextTranslator
+# from CONVERTER.src.com.jalasoft.converter.model.audio.audio_converter import AudioConvert
+# from CONVERTER.src.com.jalasoft.converter.model.audio.audio_extract_audio import ExtractAudio
+# from CONVERTER.src.com.jalasoft.converter.model.audio.audio_increase_volume import IncreaseVolume
+# from CONVERTER.src.com.jalasoft.converter.model.audio.audio_mix_audio import MixAudio
+# from CONVERTER.src.com.jalasoft.converter.model.image.image_to_images import ImageConverter
+# from CONVERTER.src.com.jalasoft.converter.model.image.image_bw import ImageBW
+# from CONVERTER.src.com.jalasoft.converter.model.image.image_flip import ImageFlip
+# from CONVERTER.src.com.jalasoft.converter.model.image.image_resize import ImageResize
+# from CONVERTER.src.com.jalasoft.converter.model.image.image_rotate import ImageRotate
+# from CONVERTER.src.com.jalasoft.converter.model.image.image_to_pdf import ImageToPDFConvert
+# from CONVERTER.src.com.jalasoft.converter.model.image.image_to_text import ImageToTextConvert
+# from CONVERTER.src.com.jalasoft.converter.model.image.pdf_to_image import PdfImage
+# from CONVERTER.src.com.jalasoft.converter.model.video.vconverter import VideoToImages
+# from CONVERTER.src.com.jalasoft.converter.model.video.video_to_video import VideoToVideo
+# from CONVERTER.src.com.jalasoft.converter.model.text.text_translate import TextTranslator
