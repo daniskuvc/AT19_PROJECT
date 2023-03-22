@@ -1,0 +1,46 @@
+#mainwindow{
+    background-color: #212121;
+}
+QMenu, #line_menu{
+    background-color: #212121;
+    color: #f9f9f9;
+}
+#line_edit, #comboBox{
+    background: #BDBDBD;
+    border-radius: 5px;
+    height: 25px;
+    font-size: 12px;
+}
+#line_menu::item:selected{
+    color: f9f9f9;
+    background-color: #757575;
+}
+QLabel{
+    color: #f9f9f9;
+    font-size: 12px;
+}
+#my_buttons{
+    background-color: #616161;
+    height: 25px;
+    font-size: 14px;
+    color: #f9f9f9;
+    border-radius: 5px;
+}
+#my_buttons:hover, QPushButton:hover{
+    color: #f9f9f9;
+    background: #757575;
+}
+QPushButton{
+    width: 80px;
+    height: 20px;
+    background-color: #616161;
+    border-radius: 5px;
+    color: #f9f9f9;
+}
+QMessageBox, QDialog{
+    background: #212121;
+}
+#table{
+    background: #424242;
+
+}

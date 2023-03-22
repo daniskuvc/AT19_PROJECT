@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'img/icon.png' %}" type="image/x-icon">
+    <title>Recognition Studio - Feature</title>
+</head>
+<body>
+    {% include 'menu.html' %}
+    <main>
+        <section class="feature_recognizer">
+            <h2 class="title">Feature Recognizer</h2>
+            {% if user.is_authenticated%}
+            <div class="form_container" >
+              <form enctype="multipart/form-data" method="POST" role="form">
+              <div class="form_item first">
+                  <label for="image_recognize">Image to Recognize:</label>
+                  <input type="file" id="input_image" accept="image/jpeg, image/png, image/bmp image/jpg" name="image" required></div>
+              <div class="form_item medium"><label for="method">What recognition are you looking for in the image?:</label>
+                  <select name="method" id="features_select">
+                    <option value="age" selected>age</option>
+                    <option value="emotion">emotion</option>
+                    <option value="race">race</option>
+                    <option value="gender">gender</option>
+                    <option value="face">face</option>
+                  </select>
+              </div>
+                {% csrf_token %}
+                <div class="form_button"><input type="submit" value="Search" class="submit_button_feature"></div>
+              </form>
+              <div class="card">
+                <div class="row">
+                  <div class="col-md-4">
+                    {% if response %}
+                    {% if 'list' in response %}
+                      {% for item in response.list %}
+                      
+                          <div class="response_feature">
+                            {% if 'age' in item.keys or 'totalFaces' in item.keys %}
+                            <p>Found: {{item.age}}{{item.totalFaces}}</p>
+                            {% else %}
+                            <p>Found: {{item.gender}}</p>
+                            {% endif %}
+                          {% endfor %} 
+                          </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="feature_container"><img class="respone_feature" src="{{ image_url }}" alt=""></div>
+                  </div>
+                </div>
+              </div>
+            <div class="card">
+              <div class="row">
+                <div class="col-md-10">
+                  {% else %}
+                  {% for dictionary in response %}
+                    {% for key, value in dictionary.items %}
+                      <p>Found {{ key }} with probability: {{ value }} </p>
+                    {% endfor %}
+                  {% endfor %}
+                </div>
+                <div class="col-md-2">
+                  <div class="feature_container"><img class="response_feature" src="{{ image_url }}" alt=""></div>
+                  {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+              </div>
+              {% else %}
+            <h3>Please sing in for enjoy this service.
+            </h3>
+            {% endif %}
+        </select>
+    </main>
+</body>
+<footer class="container_footer">
+  <div class="footer">
+    <small>&copy; 2023  <b>Jala University</b> - Recognition Studio</small>
+  </div>    
+</footer>
+</html>

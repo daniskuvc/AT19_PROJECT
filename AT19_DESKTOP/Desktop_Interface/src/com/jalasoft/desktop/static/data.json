@@ -1,0 +1,1 @@
+{"converter": "http://localhost:5000/videotoimage/zip", "machine learning": "http://localhost:5001/object_recognizer", "token": "http://localhost:5000/login"}

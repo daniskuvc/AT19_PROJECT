@@ -1,0 +1,340 @@
+body{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgb(241, 241, 241);
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    min-height: calc(100vh - 90px - 7rem);
+    width: 80%;
+    margin: auto;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    background: #00A181;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    box-shadow: 0px 16px 39px -25px rgba(0,0,0,0.66);
+}
+
+.header_container{
+    width: 100%;
+    max-width: 2000px;
+    margin: auto;
+}
+
+.logo_container{
+    width: 30%;
+    float: left;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo_img{
+    width: 110px;
+    margin-left: 10px;
+}
+
+.logo_container h1{
+    color: #111;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: default;
+}
+
+.bar_button{
+    font-size: 25px;
+    color: #111;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.menu_container{
+    float: right;
+    margin-right: 20px;
+    line-height: 75px;
+    list-style: none;
+}
+
+.menu_container li{
+    display: inline-block;
+}
+
+.menu_container li img{
+    border-radius: 20px !important;
+    width: 40px;
+}
+
+.menu_container li a{
+    text-decoration: none;
+    color: #111;
+    font-weight: bold;
+    display: inline-block;
+    padding: 12px 15px;
+    line-height: normal;
+    font-size: 18px;
+    transition: all 500ms ease;
+    border-bottom: 4px transparent;
+}
+
+.menu_container li a:hover{    
+    color: white;    
+    border-bottom: 4px solid white;
+}
+
+.icon_container{
+    width: 35px;
+}
+
+.icon_container img{
+    width: 100%;
+    filter: invert();
+}
+
+.person_recognition, .feature_recognizer{
+    width: 80%;
+    margin: 25px auto;
+}
+
+.response{
+    text-align: center;
+}
+
+.title{
+    color: rgba(0, 128, 128, 0.7);
+}
+
+.titles_container p, .titles_container h4{
+    margin-bottom: 2rem;
+}
+
+.person_recognition form, .feature_recognizer form{
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.form_container{
+    background-color: rgba(0, 128, 128, 0.5);
+    min-height: 150px;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    box-shadow: 8px 16px 39px -25px rgba(0,0,0,0.66);
+    padding: 1rem;
+}
+.form_item{
+    width: 100%;
+    height: 4rem;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: initial;
+    margin-left: auto;
+    justify-content: space-between;
+}
+
+.form_item_customize{
+    background-color: rgba(0, 128, 128, 0.5);
+    border-radius: 0.5rem;
+    margin-right: 6.2rem;
+    width: 315px;
+}
+
+.form_item input{
+    background-color: rgba(0, 128, 128, 0.5);
+    border-radius: 0.5rem;
+    margin-right: 2.2rem;
+    width: 315px;
+}
+
+.form_images input{
+    background-color: rgba(0, 128, 128, 0.5);
+    border-radius: 0.5rem;
+}
+
+.form_item.first{
+    width: 100%;
+    height: 4rem;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: initial;
+    justify-content: space-between;
+}
+
+.form_item.medium{
+    width: 100%;
+    height: 4rem;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: initial;
+    justify-content: space-between;
+}
+
+.form_item.last{
+    width: 100%;
+    height: 4rem;
+    justify-content: center;
+}
+
+.form_item.medium select{
+    background-color: rgba(0, 128, 128, 0.5);
+    height: 2rem;
+    width: 16rem;
+    border-radius: 0.5rem;
+    margin-right: 1.1rem;
+    cursor: pointer;
+}
+
+.form_images{
+    width: 100%;
+    height: 4rem;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: initial;
+    justify-content: space-between;
+}
+input{
+    height: 30px;
+}
+
+.form_item.first input{
+    margin: 0 1rem;
+    background-color: rgba(0, 128, 128, 0.5);
+    border-color: transparent;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    width: 50%;
+    height: 2rem;
+    cursor: pointer;
+}
+
+#input_known::file-selector-button {
+    background-color: rgba(0, 128, 128, 0.5) !important;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#input_unknown::file-selector-button {
+    background-color: rgba(0, 128, 128, 0.5) !important;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#input_image::file-selector-button {
+    background-color: rgba(0, 128, 128, 0.5) !important;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.form_item:nth-child(4) input{
+    width: 80%;
+}
+
+.submit_button, .submit_button_feature{
+    height: 30px;
+    width: 250px;
+    margin: auto;
+    background-color: rgba(0, 128, 128, 0.7);
+    border: none;
+    border-radius: 0.5rem; 
+}
+
+.submit_button:hover, .submit_button_feature:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: rgba(0, 128, 128, 0.9);
+    transition: 500ms;
+}
+.form_button, .form_item.last{
+    align-items: center;
+    display: grid;
+}
+
+.download_file{
+    margin: 0 1rem;
+}
+
+.container_footer{    
+    width: 100%;
+    background-color: #111;
+    position: fixed;
+    bottom: 0;
+}
+
+.container_footer .footer{    
+    background-color: #00A181;
+    padding: 15px 10px;
+    text-align: center;
+    bottom: 0;
+}
+
+.container_footer .footer small{
+    font-size: 15px;
+}
+
+.response_container{
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    animation-name: response_animation;
+    animation-duration: 3s;
+}
+
+.feature_container{
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: flex-start;
+    animation-name: response_animation;
+    animation-duration: 3s;
+    height: 380px;
+}
+
+.response_image{
+    width: 80%;
+}
+
+.response_feature{
+    width: 80%;
+}
+
+@keyframes response_animation {
+    0% {opacity:0; transform: scale(1)}
+    50% {opacity:0; transform: scale(1)}
+    75% {opacity:0.5; transform: scale(1.2)}
+    100% {opacity:1; transform: scale(1)}
+}
+
+h4.response{
+    margin-left: 2rem;
+    font-size: 2rem;
+}
+
+.face_container img{
+    width: auto;
+    height: 250px;
+}
+.feature_container img{
+    width: auto;
+    height: 250px;
+}
+.space {
+    height: 150px;
+}
+h3.response{
+    animation-name: response_title;
+    animation-duration: 1s;
+}
+
+@keyframes response_title {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}

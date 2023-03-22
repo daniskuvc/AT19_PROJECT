@@ -1,0 +1,36 @@
+{% load static %}
+{% load socialaccount %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<title>Recognition Studio</title>
+<header>
+    <div class="header_container">
+        <div class="logo_container">
+            <a href="/"><img src="{% static 'img/icon.png' %}" alt="Converter Studio Logo" class="logo_img"></a>
+            <h1>Recognition Studio</h1>
+        </div>
+        <ul class="menu_container">
+            <li><a href="/">Home</a></li>
+       <!--     {% if user.is_authenticated%} -->
+            <li><a href="/person">Person Recognition</a></li>
+            <li><a href="/feature">Feature Recognizer</a></li>
+        <!--    {% endif %} -->
+            <li><a href="#" class="item_list">Contact us</a></li>
+            <li><a href="#" class="item_list">About us</a></li>
+        <!--    {% if user.is_authenticated%}
+
+            <li><img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="user icon" width="40"
+                height="40" /></li>
+            <li><a class="item_list" href="logout?next=/">Log out</a></li>
+
+            {% else %} -->
+
+            <li><img src="{% static 'img/user.png' %}" alt="user icon" width="40" height="40"></li>
+            <li><a class="item_list" href="{% provider_login_url 'google'%}?next=/"> Log in with Google</a></li>
+            
+        <!--    {% endif %} -->
+        </ul>
+    </div>
+</header>

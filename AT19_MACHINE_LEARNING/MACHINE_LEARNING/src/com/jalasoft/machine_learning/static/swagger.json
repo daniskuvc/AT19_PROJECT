@@ -1,0 +1,335 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "RECOGNIZER",
+    "description": "<b>RECOGNIZER STUDIO</b>. Is a simple, smart and elegant tool with different options to recognize people, animals and objects. This is the only Recognizer that has such a wide range of recognizing features with a very simple and easy to use interface..<br><hr> <ul>\n  <sub>Developed for Jala University (2023) by:</sub>\n  <b><h3>AT19 Team - International</h3></b>\n  <li>&#127463&#127476 Carolina Vacaflor Nina</li>\n  <li>&#127462&#127479 Celeste Palet Arias</li>\n  <li>&#127463&#127476 Daniel Villarroel Chanlopkova</li>\n  <li>&#127463&#127476 David Garnica Morales</li>\n  <li>&#127463&#127476 Denisse Cordoba Sanabria</li>\n  <li>&#127464&#127476 Fabian Cabrejo Arias</li>\n  <li>&#127464&#127476 Leonardo Pacheco Carrillo</li>\n  <li>&#127463&#127476 Maria Mamani Cruz</li>\n  <li>&#127463&#127476 Martin Alvarez Alcoreza</li>\n  <li>&#127462&#127479 Rocio Morales</li>\n  <li>&#127463&#127476 Roger Renjifo Tarquino</li>\n  <li>&#127463&#127476 Selmi Mura\u00f1a Cayo</li>\n  <li>&#127463&#127476 Telma Rios Fernandez</li>\n  <br><sub>Under supervision of the Trainer:</sub>\n  <br>Paolo Sandoval\n</ul> <hr>",
+    "contact": {
+      "name": "AT19 Support",
+      "url": "http://www.converter.com/support",
+      "email": "support@jala.university"
+    },
+    "version": "1.0.11"
+  },
+  "servers": [
+    {
+      "url": "http://0.0.0.0:5001",
+      "description": "Home Recognizer-L1"
+    },
+    {
+      "url": "http://127.0.0.1:5001",
+      "description": "Home Recognizer-L2"
+    },
+    {
+      "url": "http://192.168.56.18:5001",
+      "description": "Home Recognizer-Vag"
+    },
+    {
+      "url": "http://localhost:5001",
+      "description": "Generated"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Download",
+      "description": "Utility to dowload files from Recognizer server"
+    },
+    {
+      "name": "Object Recognizer",
+      "description": "Recognizes the object or animal that you select from a file",
+      "externalDocs": {
+        "description": "Go to our web site",
+        "url": "http://recognize.com/object"
+      }
+    },
+    {
+      "name": "Person Recognizer",
+      "description": "Recognize if one person from an image is the same in another image",
+      "externalDocs": {
+        "description": "Go to our web site",
+        "url": "http://recognize.com/person"
+      }
+    },
+    {
+      "name": "Feature Recognizer",
+      "description": "Recognize the features of a person in an image such as gender, face, age, race and emotion.",
+      "externalDocs": {
+        "description": "Go to our web site",
+        "url": "http://recognize.com/feature"
+      }
+    }
+  ],
+  "paths": {
+    "/download": {
+      "get": {
+        "tags": [
+          "Download"
+        ],
+        "summary": "Downloads a recognizer file",
+        "description": "",
+        "operationId": "get.download",
+        "parameters": [
+          {
+            "name": "file_name",
+            "in": "query",
+            "description": "Please choose a file do yo want download",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "example": "Wm1sc1pWOTBiMTlrYjNkdWJHOWhaQzU2YVhBPQ=="
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Download link was generated succesfuly.",
+            "content": {
+              "application/zip": {
+                "schema": {
+                  "$ref": "#/components/schemas/download"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "File not found in this server."
+          }
+        }
+      }
+    },
+    "/object_recognizer": {
+      "post": {
+        "tags": [
+          "Object Recognizer"
+        ],
+        "summary": "Recognize  objects",
+        "description": "",
+        "operationId": "post.object_recognizer",
+        "requestBody": {
+          "description": "Choose the image to recognize",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/object_recognizer"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Recognize process finished succesfully",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid supplied file"
+          },
+          "404": {
+            "description": "File not found."
+          },
+          "500": {
+            "description": "Lost communication with the server."
+          }
+        }
+      }
+    },
+    "/person_recognizer": {
+      "post": {
+        "tags": [
+          "Person Recognizer"
+        ],
+        "summary": "In an image given it recognize if it is the same person from other image",
+        "description": "",
+        "operationId": "post.person_recognizer",
+        "requestBody": {
+          "description": "Choose two images to recognize the person:",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/person_recognizer"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Recoznize process finished succesfully",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid supplied file."
+          },
+          "404": {
+            "description": "File not found."
+          },
+          "500": {
+            "description": "Lost communication with the server."
+          }
+        }
+      }
+    },
+    "/feature_recognizer": {
+      "post": {
+        "tags": [
+          "Feature Recognizer"
+        ],
+        "summary": "Recognizes different features of a person",
+        "description": "In an image given it recognize people's features",
+        "operationId": "post.feature_recognizer",
+        "parameters": [],
+        "requestBody": {
+          "description": "Choose the image from which a characteristic will be recognized:",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/feature_recognizer"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "image/jpg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid image supplied"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "download": {
+        "required": [
+          "image",
+          "method"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "format": "binary",
+            "example": ""
+          }
+        }
+      },
+      "object_recognizer": {
+        "required": [
+          "image",
+          "method",
+          "percentage",
+          "word"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "description": "Choose the image",
+            "format": "binary",
+            "example": "aW1hZ2UuanBn"
+          },
+          "method": {
+            "type": "string",
+            "description": "Indicate the trained model to be used",
+            "example": "resnet",
+            "enum": [
+              "resnet",
+              "inception",
+              "densenet",
+              "mobilenet"
+            ]
+          },
+          "percentage": {
+            "type": "string",
+            "description": "Specify the percentage of probability with which the recognition will be made ",
+            "example": "50"
+          },
+          "word": {
+            "type": "string",
+            "example": "grey fox"
+          }
+        }
+      },
+      "person_recognizer": {
+        "required": [
+          "known_image",
+          "known_name",
+          "unknown_image"
+        ],
+        "type": "object",
+        "properties": {
+          "unknown_image": {
+            "type": "string",
+            "description": "Choose an unknow image",
+            "format": "binary",
+            "example": "aW1hZ2UxLmpwZw=="
+          },
+          "known_image": {
+            "type": "string",
+            "description": "Choose a know image",
+            "format": "binary",
+            "example": "aW1hZ2UyLmpwZw=="
+          },
+          "known_name": {
+            "type": "string",
+            "description": "Write the name",
+            "example": "Obama"
+          }
+        }
+      },
+      "feature_recognizer": {
+        "required": [
+          "image"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "description": "Choose a image",
+            "format": "binary",
+            "example": "aW1hZ2UuanBn"
+          },
+          "method": {
+            "type": "string",
+            "description": "Indicate the feature to recognize",
+            "example": "age",
+            "enum": [
+              "age",
+              "gender",
+              "face",
+              "emotion",
+              "race"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

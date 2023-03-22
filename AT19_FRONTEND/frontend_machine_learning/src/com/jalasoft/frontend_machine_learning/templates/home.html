@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'img/icon.png' %}" type="image/x-icon">
+    {% include 'menu.html' %}
+</head>
+<body> 
+    <main>
+        <section class="home">
+        <center>
+            <div class="titles_container">
+                <p><h1>Recognition Stutio</h1></p>
+                {% if user.is_authenticated%}
+                <h4>Welcome {{user.username}}</h4>         
+                {% endif %}
+            </div>            
+            <div class="space"></div>
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{% static 'img/recog.png' %}" width="400" height="250">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="col">
+                            <div class="card-body">
+                                <p>"Recognition Studio is an image recognition tool that can analyze a person's age, race, emotion,
+                                    and gender from a single image. By using advanced machine learning algorithms, the app can 
+                                    accurately detect and classify the various features of a person's face. In addition, the 
+                                    application can compare two images and determine whether or not it is the same person. 
+                                    Recognition studio is user friendly and easy to use which makes it accessible to a wide range
+                                     of users. Overall, this app is a powerful tool for identifying and analyzing people in 
+                                     digital images."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </section>
+    </main>
+</body>
+<footer class="container_footer">
+    <div class="footer">
+        <small>&copy; 2023  <b>Jala University</b> - Recognition Studio</small>
+    </div>    
+</footer>
+</html>

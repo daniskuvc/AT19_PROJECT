@@ -1,0 +1,47 @@
+#
+# @docker-compose.yaml Copyright (c) 2023 Jalasoft.
+# 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+# All rights reserved.
+#
+# This software is the confidential and proprietary information of
+# Jalasoft, ("Confidential Information"). You shall not
+# disclose such Confidential Information and shall use it only in
+# accordance with the terms of the license agreement you entered into
+# with Jalasoft.
+#
+
+version: '3.1'
+
+services:
+  mongo:
+    image: danisku/mongodb:6.0.4
+    container_name: ml_mongodb
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASS}
+    restart: always
+    command: ['--auth']
+    networks:
+      mlnetwork:
+    volumes:
+      - ./data/mongodb:/data/db
+
+  ml_backend:
+    image: danisku/mlservice:1.17
+    container_name: mlserver
+    ports:
+      - 5001:5001
+    environment:
+      MONGODB_HOST: ${MONGODB_HOST}
+    depends_on:
+      - mongo
+    restart: always
+    networks:
+      mlnetwork:
+
+networks:
+  mlnetwork:
+    driver: bridge
+

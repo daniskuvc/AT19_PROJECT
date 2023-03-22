@@ -1,0 +1,28 @@
+pipeline {
+  agent any
+  stages {
+    stage('Test') {
+      agent{
+        docker { image 'danisku/convbase:1.02' }
+      }
+      environment {
+          PYTHONPATH = "${WORKSPACE}/CONVERTER"
+      }
+      steps {
+          sh 'echo ${WORKSPACE}'
+          sh 'pip install pytest-html'
+          sh 'pytest --cov=CONVERTER/src/com/jalasoft/converter/model --cov-report html --html=report.html'
+      }
+      post {
+        always {
+          archiveArtifacts artifacts: 'htmlcov/** , report.html', fingerprint: true
+        }
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'echo ALL RIGHT! Carmen'
+      }
+    }
+  }
+}

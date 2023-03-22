@@ -1,0 +1,44 @@
+#
+# @dockerfile Copyright (c) 2022 Jalasoft.
+# 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+# All rights reserved.
+#
+# This software is the confidential and proprietary information of
+# Jalasoft, ("Confidential Information"). You shall not
+# disclose such Confidential Information and shall use it only in
+# accordance with the terms of the license agreement you entered into
+# with Jalasoft.
+#
+
+FROM ubuntu:20.04
+RUN apt-get -y update
+RUN apt-get update && DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt-get install -y tzdata
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:deadsnakes/ppa -y
+RUN apt-get install -y python3-dev
+RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN apt-get install -y python3-pip
+
+
+WORKDIR /app
+COPY . /app
+
+
+RUN apt update
+RUN pip install flask
+RUN pip install flask-restful
+RUN pip install deepface
+RUN pip install cmake
+RUN pip install face-recognition
+RUN pip install python-dotenv
+RUN pip install flask-swagger-ui
+RUN pip install cython pillow>=7.0.0 numpy>=1.18.1 opencv-python>=4.1.2 torch>=1.9.0 --extra-index-url https://download.pytorch.org/whl/cpu torchvision>=0.10.0 --extra-index-url https://download.pytorch.org/whl/cpu pytest==7.1.3 tqdm==4.64.1 scipy>=1.7.3 matplotlib>=3.4.3 mock==4.0.3
+RUN pip install imageai --upgrade
+RUN apt-get install -y libxkbcommon-x11-0
+RUN apt-get update && apt-get install -y libgl1
+RUN pip install opencv-python==4.6.0.66
+RUN pip install numpy==1.20.3
+
+
+EXPOSE 5001
+CMD ["python3", "AT19_MACHINE_LEARNING/MACHINE_LEARNING/src/com/jalasoft/machine_learning/main.py"]

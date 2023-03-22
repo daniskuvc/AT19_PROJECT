@@ -1,0 +1,35 @@
+#
+# @docker-compose.yml Copyright (c) 2023 Jalasoft.
+# 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+# All rights reserved.
+#
+# This software is the confidential and proprietary information of
+# Jalasoft, ("Confidential Information"). You shall not
+# disclose such Confidential Information and shall use it only in
+# accordance with the terms of the license agreement you entered into
+# with Jalasoft.
+#
+
+
+version: '3.1'
+
+services:
+
+  converter:
+    image: conv_image
+    build:
+      context: .
+      dockerfile: AT19_CONVERTER/CONVERTER/dockerfile
+    ports:
+      - 5000:5000
+
+  machine_learning:
+    image: ml_image
+    build:
+      context: .
+      dockerfile: AT19_MACHINE_LEARNING/dockerfile
+    ports:
+      - 5001:5001
+  
+
+

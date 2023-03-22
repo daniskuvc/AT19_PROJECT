@@ -1,0 +1,22 @@
+# dirs
+__pycache__/*
+.idea/*
+.vscode/*
+MACHINE_LEARNING/test/*
+.git/*
+.vagrant/*
+data/*
+
+# files
+*.jp*
+*.webp
+README.md
+.gitignore
+=*
+dockerfile
+.dockerignore
+.python-version
+*.log
+dockerfile_*
+docker-compose_*
+

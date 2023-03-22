@@ -1,0 +1,53 @@
+#
+# @docker-compose.yaml Copyright (c) 2023 Jalasoft.
+# 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+# All rights reserved.
+#
+# This software is the confidential and proprietary information of
+# Jalasoft, ("Confidential Information"). You shall not
+# disclose such Confidential Information and shall use it only in
+# accordance with the terms of the license agreement you entered into
+# with Jalasoft.
+#
+
+version: '3.1'
+
+services:
+
+  mysqldb:
+    image: danisku/mysql:8.0.32-1
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQLDB_PASS}
+      MYSQL_DATABASE: ${MYSQLDB_NAME}
+    ports:
+      - 3006:3006
+    restart: always
+    volumes:
+      - ./data/mysql:/data/db
+    networks:
+      convnetwork:
+
+  conv_backend:
+    image: danisku/convservice:1.05
+    container_name: convserver
+    ports:
+      - 5000:5000
+    environment:
+      CONVERTER_HOST_ALL: ${CONVERTER_HOST_ALL}
+      CONVERTER_HOST: ${CONVERTER_HOST}
+      MYSQLDB_HOST: ${MYSQLDB_HOST}
+      MYSQLDB_PORT: ${MYSQLDB_PORT}
+      MYSQLDB_USER: ${MYSQLDB_USER}
+      MYSQLDB_PASS: ${MYSQLDB_PASS}
+      MYSQLDB_NAME: ${MYSQLDB_NAME}    
+      PYTHONPATH: /app/CONVERTER
+    depends_on:
+      - mysqldb
+    restart: always
+    networks:
+      convnetwork:
+
+networks:
+  convnetwork:
+    driver: bridge

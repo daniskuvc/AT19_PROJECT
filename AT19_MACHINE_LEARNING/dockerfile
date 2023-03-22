@@ -1,0 +1,19 @@
+#
+# @dockerfile Copyright (c) 2023 Jalasoft.
+# 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+# All rights reserved.
+#
+# This software is the confidential and proprietary information of
+# Jalasoft, ("Confidential Information"). You shall not
+# disclose such Confidential Information and shall use it only in
+# accordance with the terms of the license agreement you entered into
+# with Jalasoft.
+#
+
+FROM ml-base:1.16
+
+WORKDIR /app
+COPY . .
+
+CMD ["python3", "MACHINE_LEARNING/src/com/jalasoft/machine_learning/main.py"]
+
